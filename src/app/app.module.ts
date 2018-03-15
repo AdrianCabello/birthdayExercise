@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { BirthdaysComponent } from './components/birthdays/birthdays.component';
 
+import * as swal from 'sweetalert';
 
 @NgModule({
   declarations: [
