@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+body {
+    background: #ebedef;
+}
+
+article {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    section {
+        width: 96%;
+        background: #fff;
+        margin-top: 20px;
+        border-radius: 4px;
+        padding: 20px;
+    }
+}

@@ -1,16 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 
+import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { BirthdaysComponent } from './components/birthdays/birthdays.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BirthdaysComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    NgbModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
