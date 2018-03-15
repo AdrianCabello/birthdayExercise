@@ -24,7 +24,7 @@ export class BirthdaysComponent implements OnInit {
   }
 
   saveBirthday(){
-    swal("Good job!", "You clicked the button!", "success");
+    swal("Good job!", "You clicked the button!", "error");
   }
 
 
