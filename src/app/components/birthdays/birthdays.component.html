@@ -5,33 +5,32 @@
         <div class="row top-30 ">
             <!-- Birthday Form -->
             <div class="col-sm-6">
-                <form>
+                <form ngNativeValidate #f="ngForm" (ngSubmit)="saveBirthday(f)">
                     <!-- Input Name -->
                     <div class="form-group">
                         <label for="name">Name:</label>
-                        <input type="text" class="form-control" id="name" placeholder="Name here">
+                        <input type="text" class="form-control" id="name" placeholder="Name here" ngModel name="name" required>
                     </div>
                     <!-- Input Surname -->
                     <div class="form-group">
                         <label for="surname">Surname:</label>
-                        <input type="text" id="surname" class="form-control" placeholder="Surname here">
+                        <input type="text" id="surname" class="form-control" placeholder="Surname here" ngModel name="surname" required>
                     </div>
                     <!-- Select Countries -->
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">Countries:</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                        <label for="countryControl">Countries:</label>
+                        <select class="form-control" [compareWith]="compare" id="countrySelect" [(ngModel)]="selectedCountries" name="countrySelect" required>
+                            <option value="">Select country</option>
+                            <option *ngFor="let country of countries" [ngValue]="country">
+                            {{country.name }}
+                            </option>
                         </select>
                     </div>
                     <!-- Birthday Date  -->
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">Birthday:</label>
+                        <label for="dateSelected">Birthday:</label>
                         <div class="input-group">
-                            <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                            <input class="form-control" placeholder="Birthdate Here" id="dateSelected" name="dateSelected" ngbDatepicker [(ngModel)]="birthdayDate" #d="ngbDatepicker" required>
                             <div class="input-group-append">
                                 <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
                                     <i class="far fa-calendar-alt"></i>
@@ -39,8 +38,9 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Submit -->
                     <div class="text-right">
-                        <button (click)="saveBirthday()" type="button" class="btn btn-primary ">SAVE</button>
+                        <button type="submit" class="btn btn-primary ">SAVE</button>
                     </div>
                 </form>
             </div>
@@ -50,30 +50,18 @@
                 <table class="table">
                     <thead>
                         <tr>
-
                             <th scope="col">Name</th>
+                            <th scope="col">Surname</th>
                             <th scope="col">Country</th>
                             <th scope="col">Birthday</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
+                        <tr *ngFor="let birthday of _birthdayServices.birthdays" (click)="showBirthday(birthday)">
+                            <td>{{birthday.name}}</td>
+                            <td>{{birthday.surname}}</td>
+                            <td>{{birthday.country.name}}</td>
+                            <td>{{birthday.date | date}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -85,7 +73,5 @@
                 <strong>Adrián Cabello</strong>
             </span>
         </div>
-
-
     </section>
 </article>
