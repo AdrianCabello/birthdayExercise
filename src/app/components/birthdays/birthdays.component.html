@@ -57,7 +57,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let birthday of _birthdayServices.birthdays" (click)="showBirthday(birthday)">
+                        <tr *ngFor="let birthday of birthdays | async" (click)="showBirthday(birthday)">
                             <td>{{birthday.name}}</td>
                             <td>{{birthday.surname}}</td>
                             <td>{{birthday.country.name}}</td>

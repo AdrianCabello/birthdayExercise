@@ -5,12 +5,11 @@ import { Birthday } from '../model/birthday';
 
 @Injectable()
 export class BirthdayService {
-
-  public birthdays: Birthday[];
-
+  
+  birthdays: Birthday[];
+  
   constructor(public _http: HttpClient) {
   }
-
 
   getCountries() {
     let url = 'https://restcountries.eu/rest/v2/all';
@@ -21,7 +20,7 @@ export class BirthdayService {
     if (this.birthdays === null) {
       this.birthdays = [];
     }
-    
+
     this.birthdays.push(birthday);
     localStorage.setItem('birthdays', JSON.stringify(this.birthdays));
   }
@@ -29,5 +28,6 @@ export class BirthdayService {
   loadBirthdays() {
     this.birthdays = JSON.parse(localStorage.getItem('birthdays'));
   }
+
 
 }
