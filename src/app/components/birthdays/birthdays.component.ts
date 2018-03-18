@@ -50,9 +50,7 @@ export class BirthdaysComponent implements OnInit {
     if (JSON.parse(localStorage.getItem('birthdays'))) {
       this.ngRedux.dispatch({ type: LOAD_BIRTHDAY, birthdays: JSON.parse(localStorage.getItem('birthdays')) });
     }
-
-    //Initialize date on today
-    this.birthdayDate = { year: this.now.getFullYear(), month: this.now.getMonth() + 1, day: this.now.getDate() };
+    
   }
 
 
@@ -61,7 +59,7 @@ export class BirthdaysComponent implements OnInit {
     this._birthdayServices.getCountries()
       .subscribe((resp) => {
         this.countries = resp;
-        this.selectedCountries = this.countries[0];
+        this.selectedCountries = '';
       });
   }
 
@@ -92,12 +90,17 @@ export class BirthdaysComponent implements OnInit {
       let dateBirthday = new Date(form.value.dateSelected.year, form.value.dateSelected.month - 1, form.value.dateSelected.day)
       this.ngRedux.dispatch({ type: ADD_BIRTHDAY, birthday: birthday });
 
-      //Save birthday on localstorage
+      //Save birthday in the localstorage
       this._birthdayServices.saveBirthday(birthday);
 
+     
       //Message
       let message = "Hello " + form.value.name + " from " + form.value.countrySelect.name + " on " + form.value.dateSelected.day + " of " + this.month_names[form.value.dateSelected.month] + " you will have " + this.getYears(form.value.dateSelected) + ".";
       swal("Register Complete", message, "success");
+
+      //Clean Form
+      form.reset();
+      this.selectedCountries = '';
     } else {
       swal("Register incomplete", "Please complete all fields.", "error");
     }

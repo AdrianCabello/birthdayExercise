@@ -19,8 +19,8 @@
                     <!-- Select Countries -->
                     <div class="form-group">
                         <label for="countryControl">Countries:</label>
-                        <select class="form-control" [compareWith]="compare" id="countrySelect" [(ngModel)]="selectedCountries" name="countrySelect" required>
-                            <option value="">Select country</option>
+                        <select class="form-control" placeholder="Select country" [compareWith]="compare" id="countrySelect" [(ngModel)]="selectedCountries" name="countrySelect" required>
+                            <option value="" disabled selected>Select your option</option>
                             <option *ngFor="let country of countries" [ngValue]="country">
                             {{country.name }}
                             </option>
@@ -45,7 +45,7 @@
                 </form>
             </div>
 
-            <!-- Birthday Table-->
+            <!-- Birthdays Table-->
             <div class="col-sm-6">
                 <table class="table">
                     <thead>
