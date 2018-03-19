@@ -1,0 +1,12 @@
+{
+    "intive": "Ejercicio Intive - FDV",
+    "name": "Nombre",
+    "name-placeholder": "Nombre aquí",
+    "surname": "Apellido",
+    "surname-placeholder": "Apellido aqui",
+    "countries": "Paises",
+    "countries-placeholder": "Seleccione una opción",
+    "birthday": "Fecha de Nacimiento",
+    "birthday-placeholder": "aaaa-mm-dd",
+    "save": "Guardar"
+}

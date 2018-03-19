@@ -1,6 +1,6 @@
 <article>
     <section>
-        <h1 class="text-center">Intive - FDV Exercise</h1>
+        <h1 class="text-center">{{ 'intive' | translate}}</h1>
 
         <div class="row top-30 ">
             <!-- Birthday Form -->
@@ -8,19 +8,19 @@
                 <form ngNativeValidate #f="ngForm" (ngSubmit)="saveBirthday(f)">
                     <!-- Input Name -->
                     <div class="form-group">
-                        <label for="name">Name:</label>
-                        <input type="text" class="form-control" id="name" placeholder="Name here" ngModel name="name" required>
+                        <label for="name">{{ 'name' | translate }}:</label>
+                        <input type="text" class="form-control" id="name" placeholder="{{ 'name-placeholder' | translate }}" ngModel name="name" required>
                     </div>
                     <!-- Input Surname -->
                     <div class="form-group">
-                        <label for="surname">Surname:</label>
-                        <input type="text" id="surname" class="form-control" placeholder="Surname here" ngModel name="surname" required>
+                        <label for="surname">{{ 'surname' | translate }}:</label>
+                        <input type="text" id="surname" class="form-control" placeholder="{{ 'surname-placeholder' | translate }}" ngModel name="surname" required>
                     </div>
                     <!-- Select Countries -->
                     <div class="form-group">
-                        <label for="countryControl">Countries:</label>
+                        <label for="countryControl">{{ 'countries' | translate }}:</label>
                         <select class="form-control" placeholder="Select country" [compareWith]="compare" id="countrySelect" [(ngModel)]="selectedCountries" name="countrySelect" required>
-                            <option value="" disabled selected>Select your option</option>
+                            <option value="" disabled selected>{{ 'countries-placeholder' | translate }}</option>
                             <option *ngFor="let country of countries" [ngValue]="country">
                             {{country.name }}
                             </option>
@@ -28,9 +28,9 @@
                     </div>
                     <!-- Birthday Date  -->
                     <div class="form-group">
-                        <label for="dateSelected">Birthday:</label>
+                        <label for="dateSelected">{{ 'birthday' | translate }}:</label>
                         <div class="input-group">
-                            <input class="form-control" placeholder="Birthdate Here" id="dateSelected" name="dateSelected" ngbDatepicker [(ngModel)]="birthdayDate" #d="ngbDatepicker" required>
+                            <input class="form-control" placeholder="{{ 'birthday-placeholder' | translate }}" id="dateSelected" name="dateSelected" ngbDatepicker [(ngModel)]="birthdayDate" #d="ngbDatepicker" required>
                             <div class="input-group-append">
                                 <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
                                     <i class="far fa-calendar-alt"></i>
@@ -40,7 +40,7 @@
                     </div>
                     <!-- Submit -->
                     <div class="text-right">
-                        <button type="submit" class="btn btn-primary ">SAVE</button>
+                        <button type="submit" class="btn btn-primary ">{{ 'save' | translate }}</button>
                     </div>
                 </form>
             </div>
@@ -50,10 +50,10 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">Surname</th>
-                            <th scope="col">Country</th>
-                            <th scope="col">Birthday</th>
+                            <th scope="col">{{ 'name' | translate }}</th>
+                            <th scope="col">{{ 'surname' | translate }}</th>
+                            <th scope="col">{{ 'countries' | translate }}</th>
+                            <th scope="col">{{ 'birthday' | translate }}</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -32,9 +32,9 @@ export class BirthdaysComponent implements OnInit {
 
   constructor(
     public _birthdayServices: BirthdayService,
+    private ngRedux: NgRedux<IAppState>, 
     config: NgbDatepickerConfig,
-    private ngRedux: NgRedux<IAppState>
-  ) {
+  ) { 
     config.minDate = { year: 1900, month: 1, day: 1 };
     config.maxDate = { year: this.now.getFullYear(), month: this.now.getMonth() + 1, day: this.now.getDate() };
   }
@@ -50,9 +50,8 @@ export class BirthdaysComponent implements OnInit {
     if (JSON.parse(localStorage.getItem('birthdays'))) {
       this.ngRedux.dispatch({ type: LOAD_BIRTHDAY, birthdays: JSON.parse(localStorage.getItem('birthdays')) });
     }
-    
-  }
 
+  }
 
   //Get countries for the services
   getCountries() {
@@ -93,7 +92,7 @@ export class BirthdaysComponent implements OnInit {
       //Save birthday in the localstorage
       this._birthdayServices.saveBirthday(birthday);
 
-     
+
       //Message
       let message = "Hello " + form.value.name + " from " + form.value.countrySelect.name + " on " + form.value.dateSelected.day + " of " + this.month_names[form.value.dateSelected.month] + " you will have " + this.getYears(form.value.dateSelected) + ".";
       swal("Register Complete", message, "success");
@@ -118,4 +117,6 @@ export class BirthdaysComponent implements OnInit {
   compare(c1: any, c2: any): boolean {
     return c1 && c2 ? c1.id === c2.id : c1 === c2;
   }
+
+
 }
