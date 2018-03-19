@@ -3,6 +3,7 @@ import { NgModule, isDevMode } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { RouterModule } from "@angular/router";
 
 //Redux
 import { NgRedux, NgReduxModule, DevToolsExtension } from 'ng2-redux';
@@ -21,6 +22,11 @@ import { APP_ROUTING } from './app.routes';
 //Components
 import { AppComponent } from './app.component';
 import { BirthdaysComponent } from './components/birthdays/birthdays.component';
+import { RevisitedComponent } from './components/revisited/revisited.component';
+import { LoginComponent } from './components/login/login.component';
+import { LoginGuard } from './services/guards/login.guard';
+import { LoginService } from './services/login.service';
+
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -29,13 +35,16 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    BirthdaysComponent
+    BirthdaysComponent,
+    RevisitedComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     APP_ROUTING,
+    RouterModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -47,7 +56,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     NgReduxModule,
     NgbModule.forRoot()
   ],
-  providers: [BirthdayService],
+  providers: [BirthdayService, LoginGuard, LoginService],
   bootstrap: [AppComponent]
 })
 

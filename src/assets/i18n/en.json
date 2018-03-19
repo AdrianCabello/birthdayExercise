@@ -8,5 +8,10 @@
     "countries-placeholder": "Select your option",
     "birthday": "Birthday",
     "birthday-placeholder": "yyyy-mm-dd",
-    "save": "Save"
+    "save": "Save",
+    "new-birthday": "New birthday",
+    "logout": "Logout",
+    "login": "Login",
+    "old-entries": "Old entries"
+
 }

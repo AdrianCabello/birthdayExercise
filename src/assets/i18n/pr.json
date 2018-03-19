@@ -8,5 +8,9 @@
     "countries-placeholder": "Selecione sua opção",
     "birthday": "Aniversário",
     "birthday-placeholder": "aaaa-mm-dd",
-    "save": "Salve"
+    "save": "Salve",
+    "new-birthday": "Novo aniversário",
+    "logout": "Sair",
+    "login": "Entrar",
+    "old-entries": "Entradas antigas"
 }

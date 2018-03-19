@@ -26,15 +26,17 @@ export class BirthdaysComponent implements OnInit {
   countries: any;
   selectedCountries: any;
 
+  lang: string;
+
   month_names = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
   ];
 
   constructor(
     public _birthdayServices: BirthdayService,
-    private ngRedux: NgRedux<IAppState>, 
+    private ngRedux: NgRedux<IAppState>,
     config: NgbDatepickerConfig,
-  ) { 
+  ) {
     config.minDate = { year: 1900, month: 1, day: 1 };
     config.maxDate = { year: this.now.getFullYear(), month: this.now.getMonth() + 1, day: this.now.getDate() };
   }
@@ -42,14 +44,7 @@ export class BirthdaysComponent implements OnInit {
   ngOnInit() {
     //Get API Countries
     this.getCountries();
-
-    //Save birthdays from localstorage on birthdayServices
-    this._birthdayServices.loadBirthdays();
-
-    //Initialize Redux state
-    if (JSON.parse(localStorage.getItem('birthdays'))) {
-      this.ngRedux.dispatch({ type: LOAD_BIRTHDAY, birthdays: JSON.parse(localStorage.getItem('birthdays')) });
-    }
+    this.lang = localStorage.getItem('lang');
 
   }
 
@@ -105,13 +100,7 @@ export class BirthdaysComponent implements OnInit {
     }
   }
 
-  showBirthday(birthday) {
-    let date = new Date(birthday.date);
-    let dateSelected: NgbDateStruct = { day: date.getUTCDate(), month: date.getUTCMonth() + 1, year: date.getUTCFullYear() };
-    let mensaje = birthday.name + " from " + birthday.country.name + " on " + dateSelected.day + " of " + this.month_names[dateSelected.month] + " you will have " + this.getYears(dateSelected) + ".";
 
-    swal("Hello !", mensaje);
-  }
 
   //Compare to Select Countries
   compare(c1: any, c2: any): boolean {

@@ -8,5 +8,9 @@
     "countries-placeholder": "Seleccione una opción",
     "birthday": "Fecha de Nacimiento",
     "birthday-placeholder": "aaaa-mm-dd",
-    "save": "Guardar"
+    "save": "Guardar",
+    "new-birthday": "Nuevo Cumpleaños",
+    "logout": "Salir",
+    "login": "Entrar",
+    "old-entries": "Entradas antiguas"
 }

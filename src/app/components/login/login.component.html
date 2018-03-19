@@ -1,0 +1,29 @@
+<article>
+    <section>
+        <h1 class="text-center">{{ 'intive' | translate}}</h1>
+
+        <div class="row top-30 ">
+            <!-- Birthday Form -->
+            <div class="col-sm-8 offset-sm-2">
+
+                <form ngNativeValidate #f="ngForm" (ngSubmit)="login(f)">
+                    <div class="form-group">
+                        <label for="name">{{ 'name' | translate }}:</label>
+                        <input type="text" class="form-control" id="name" placeholder="{{ 'name-placeholder' | translate }}" ngModel name="name" required>
+                    </div>
+                    <div class="text-right">
+                        <button type="button" class="btn btn-primary" [routerLink]="[lang,'birthday']">{{'new-birthday' | translate}}</button>
+                        <button type="submit" class="btn btn-primary ">{{'login' | translate}}</button>
+                    </div>
+                </form>
+
+            </div>
+
+            <div class="col-sm-12 text-right top-30">
+                <span>
+                <strong>Adrián Cabello</strong>
+            </span>
+            </div>
+        </div>
+    </section>
+</article>

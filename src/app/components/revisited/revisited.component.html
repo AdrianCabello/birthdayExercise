@@ -1,0 +1,39 @@
+<article>
+    <section>
+        <h1 class="text-center">{{ 'intive' | translate}}</h1>
+
+        <div class="row top-30 ">
+            <!-- Birthdays Table-->
+            <div class="col-sm-8 offset-sm-2">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">{{ 'name' | translate }}</th>
+                            <th scope="col">{{ 'surname' | translate }}</th>
+                            <th scope="col">{{ 'countries' | translate }}</th>
+                            <th scope="col">{{ 'birthday' | translate }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let birthday of birthdays | async" (click)="showBirthday(birthday)">
+                            <td>{{birthday.name}}</td>
+                            <td>{{birthday.surname}}</td>
+                            <td>{{birthday.country.name}}</td>
+                            <td>{{birthday.date | date}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="text-right">
+                    <button type="button" class="btn btn-primary" (click)="logout()">{{ 'logout' | translate}}</button>
+                    <button type="button" class="btn btn-primary" [routerLink]="[lang,'birthday']">{{'new-birthday | translate'}}</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 text-right top-30">
+            <span>
+              <strong>Adrián Cabello</strong>
+            </span>
+        </div>
+    </section>
+</article>
