@@ -37,8 +37,8 @@ export class BirthdaysComponent implements OnInit {
     private ngRedux: NgRedux<IAppState>,
     config: NgbDatepickerConfig,
   ) {
-    config.minDate = { year: 1900, month: 1, day: 1 };
-    config.maxDate = { year: this.now.getFullYear(), month: this.now.getMonth() + 1, day: this.now.getDate() };
+   /*  config.minDate = { year: 1900, month: 1, day: 1 };
+    config.maxDate = { year: this.now.getFullYear(), month: this.now.getMonth() + 1, day: this.now.getDate() }; */
   }
 
   ngOnInit() {
@@ -55,6 +55,7 @@ export class BirthdaysComponent implements OnInit {
         this.countries = resp;
         this.selectedCountries = '';
       });
+      return true;
   }
 
   //Function to get years olds

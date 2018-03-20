@@ -3,6 +3,7 @@ import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { select } from 'ng2-redux';
 import { LoginService } from '../../services/login.service';
 import { BirthdayService } from '../../services/birthday.service';
+
 declare var swal: any;
 
 @Component({

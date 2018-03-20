@@ -25,7 +25,7 @@ export class BirthdayService {
     localStorage.setItem('birthdays', JSON.stringify(this.birthdays));
   }
 
-  loadBirthdays(): Observable<any> {
+  loadBirthdays() {
     return this.birthdays = JSON.parse(localStorage.getItem('birthdays'));
   }
 }
