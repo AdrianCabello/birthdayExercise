@@ -12,5 +12,7 @@
     "new-birthday": "Novo aniversário",
     "logout": "Sair",
     "login": "Entrar",
-    "old-entries": "Entradas antigas"
+    "old-entries": "Entradas antigas",
+    "password": "Senha",
+    "password-placeholder": "Coloque sua senha"
 }

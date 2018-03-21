@@ -12,6 +12,7 @@
     "new-birthday": "New birthday",
     "logout": "Logout",
     "login": "Login",
-    "old-entries": "Old entries"
-
+    "old-entries": "Old entries",
+    "password": "Password",
+    "password-placeholder": "Enter your password"
 }

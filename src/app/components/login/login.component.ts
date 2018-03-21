@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(form: NgForm) {
-    if (!this._loginService.login(form.value.name)) {
+    if (!this._loginService.login(form.value.password)) {
       swal("Incorrect credentials", "Please try again.", "error");
     }
   }
