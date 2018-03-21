@@ -2,6 +2,8 @@
 
 Application that can save birthdays and be able to view them in a table through with authentication key.
 
+Password to view table: admin
+
 ## Features
 
 - The data persistent in localStorage
